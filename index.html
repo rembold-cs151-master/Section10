@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jed Rembold and Eric Roberts">
-  <title>Title</title>
+  <title>Exam 2 Prep and Dictionaries</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -16,11 +16,8 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
+    ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -30,22 +27,130 @@
   <link rel="stylesheet" href="./js/revealjs/../../css/highlight/monokai.css">
   <link rel="stylesheet" href="css/codetrace.css"/>
   <link rel="stylesheet" href="css/roberts.css"/>
+  <link rel="stylesheet" href="PracExam2a1Trace.css"/>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Title</h1>
+  <h1 class="title">Exam 2 Prep and Dictionaries</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
-  <p class="date">Date</p>
+  <p class="date">Week of November 6th</p>
 </section>
 
-<section id="problem-1" class="slide level2">
-<h2>Problem 1</h2>
+<section id="practice-exam-2a-prob-1" class="slide level2">
+<h2>Practice Exam 2a: Prob 1</h2>
+<p>You are tasked with identifying what is returned for every function
+call from the below code:</p>
+<pre ><code class="mypython" style="max-height:850px; font-size:.8em">def mystery(x):
+
+    def puzzle(x, y=5):
+        return x * y
+
+    def enigma(y):
+        return y ** x
+
+    return enigma(puzzle(x=2)) + enigma(puzzle(3, x))
+
+if __name__ == '__main__':
+    print(mystery(3))</code></pre>
+</section>
+<section id="a1-trace" class="slide level2"
+data-state="PracExam2a1Trace">
+<h2 data-state="PracExam2a1Trace">2a1: Trace</h2>
+<table id="PracExam2a1TraceTable">
+<tbody>
+<tr>
+<td>
+<div id="PracExam2a1Trace">
+
+</div>
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<table class="CTControlStrip">
+<tbody>
+<tr>
+<td>
+<img id=PracExam2a1TraceStepInButton
+     class="CTButton"
+     src="images/StepInControl.png"
+     alt="StepInButton" />
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="practice-exam-2a-prob-2" class="slide level2"
+data-state="RedCrossTrace">
+<h2 data-state="RedCrossTrace">Practice Exam 2a: Prob 2</h2>
+<div class="cols">
+<div class="col">
+<p>Here you are tasked with:</p>
 <ul>
-<li>Is here!</li>
+<li>Creating a red cross GCompound of specified dimensions and crossing
+at the center</li>
+<li>Adding the cross to the middle of the window</li>
+<li>Having it move at a constant speed in a constant heading every 20
+ms</li>
+<li>Implementing a listener to cause the constant heading to change when
+you click inside the cross</li>
 </ul>
+</div>
+<div class="col">
+<div id="RedCrossCanvas" class="CTCanvas"
+style="border:none; background-color:white; width:800px; height:800px;">
+
+</div>
+</div>
+</div>
+</section>
+<section id="a2-possible-solution" class="slide level2">
+<h2>2a2: Possible Solution</h2>
+<pre ><code class="mypython" style="max-height:850px; font-size:.7em;">from pgl import GWindow, GCompound, GRect
+from random import uniform
+
+WIDTH = 600
+HEIGHT = 600
+
+def create_cross():
+    """ Creates the cross GCompound """
+    c = GCompound()
+    hrect = GRect(60, 20)
+    hrect.set_filled(True)
+    hrect.set_color("red")
+    vrect = GRect(20, 60)
+    vrect.set_filled(True)
+    vrect.set_color("red")
+
+    c.add(hrect, -30, -10)
+    c.add(vrect, -10, -30)
+    return c
+
+def step():
+    """ Animates the cross movement """
+    cross.move_polar(2, gw.heading)
+
+def click_action(event):
+    """ Changes the heading if clicked within the cross """
+    mx, my = event.get_x(), event.get_y()
+    if cross.contains(mx, my):
+        gw.heading = uniform(0, 360)
+
+
+gw = GWindow(WIDTH, HEIGHT)
+cross = create_cross()
+gw.add(cross, WIDTH/2, HEIGHT/2)
+gw.heading = uniform(0, 360)
+
+gw.set_interval(step, 20)
+gw.add_event_listener("mousedown", click_action) #click would be fine too</code></pre>
 </section>
     </div>
   </div>
@@ -64,9 +169,17 @@
   <!--<script src="./js/revealjs/../other_plugins/reveald3/reveald3.js"></script>,-->
   <script src="./js/revealjs/plugin/math/math.js"></script>
   <script src="./js/revealjs/plugin/highlight/highlight.js"></script>
+  <script src="./js/revealjs/../python_language.js"></script>
+
+  // Font Awesome Characters
+  <script src="https://kit.fontawesome.com/4bc05635b0.js" crossorigin="anonymous"></script>
 
   // Code Tracing
   <script src="./js/revealjs/../codetrace.js"></script>
+
+  <script src="./js/revealjs/../../js/pgl.js"></script>
+
+  <script src="RedCrossTrace.js"></script>
 
   <script>
 
@@ -176,6 +289,11 @@
 		  <!--},-->
 		  CommonHTML: {scale: 80},
 		},
+          highlight: {
+            beforeHighlight: hljs => hljs.registerLanguage("mypython", function(hljs) {
+              console.log(mypythondef);
+              return mypythondef(hljs); } )
+          },
         // reveal.js plugins
         plugins: [
 		  RevealMath,
@@ -213,6 +331,19 @@
             // { src: "./js/revealjs/plugin/title-footer/title-footer.js", async: true, callback: function() { title_footer.initialize({css:"./js/revealjs/plugin/title-footer/title-footer.css"}); } },
 		],
       });
+  Reveal.addEventListener("RedCrossTrace", RedCrossDemo);
     </script>
+  <script>
+  // This is admitedly a very hacky way to achieve my pseudo code highlighting, but it works?
+    function remove_bars() {
+      var pseudoBlocks = document.getElementsByClassName("hljs-pseudo");
+      console.log(pseudoBlocks);
+      for ( var i = 0; i < pseudoBlocks.length; i++) {
+        pseudoBlocks[i].innerHTML = pseudoBlocks[i].innerHTML.replaceAll("\|\|\|", "");
+      }
+      }
+    // omg this is even more hacky now, but I need this to run after hljs has done its thing
+    setTimeout(remove_bars, 100);
+  </script>
     </body>
 </html>

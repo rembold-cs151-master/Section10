@@ -1,0 +1,60 @@
+#PracExam2a1TraceTable {
+    margin: auto;
+    border-collapse: collapse;
+    padding: 0px;
+    border-spacing: 0px;
+}
+
+#PracExam2a1Trace .CodeTrace {
+    width: 1600px;
+    height: 670px;
+    padding-right: 5px;
+    font-size: 0.9em;
+}
+
+#PracExam2a1Trace .CTStackFrame {
+    padding-top: 5px;
+}
+
+#PracExam2a1Console {
+    width: 1600px;
+    height: 150px;
+    margin: 0px;
+    overflow: hidden;
+    font: 0.75em 'Menlo','Courier New','Courier',monospace;
+    color: black;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#PracExam2a1ConsoleBanner {
+    width: 100%;
+    height: 1.6em;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 8px;
+    position: static;
+    overflow: hidden;
+    border-top-right-radius: 13px;
+    border-top-left-radius: 13px;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+    border-top: solid 1px black;
+    background-color: #DDDDDD;
+    color: black;
+    font: bold 0.65em 'Lucida Grande',sans-serif;
+    text-align: center;
+}
+
+#PracExam2a1ConsoleTextArea {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+    border: solid 1px black;
+}
+
+#PracExam2a1Trace .CTControlStrip {
+    margin-top: 1em;
+}
