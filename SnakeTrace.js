@@ -61,7 +61,7 @@ class SnakeSim extends CodeTrace {
 
         let x = gw.getWidth() / 2;
         let y = gw.getHeight() / 2;
-        let heading = "S";
+        let heading = "E";
         gw._sx = x;
         gw._sy = y;
         gw._heading = heading;

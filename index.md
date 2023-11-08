@@ -17,6 +17,7 @@ tracejs:
   - Snake
 extrajs:
   - js/pgl.js
+content_url: https://github.com/rembold-cs151-master/Section10
 ---
 
 
@@ -37,29 +38,8 @@ if __name__ == '__main__':
     print(mystery(3))
 ```
 
-## 2a1: Trace {data-state="PracExam2a1Trace"}
-
-<table id="PracExam2a1TraceTable">
-<tbody>
-<tr><td><div id="PracExam2a1Trace"></div></td></tr>
-<tr>
-<td style="text-align:center;">
-<table class="CTControlStrip">
-<tbody>
-<tr>
-<td>
-<img id=PracExam2a1TraceStepInButton
-     class="CTButton"
-     src="images/StepInControl.png"
-     alt="StepInButton" />
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
+## 2a1: PythonTutor Trace 
+<iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20mystery%28x%29%3A%0A%0A%20%20%20%20def%20puzzle%28x,%20y%3D5%29%3A%0A%20%20%20%20%20%20%20%20return%20x%20*%20y%0A%0A%20%20%20%20def%20enigma%28y%29%3A%0A%20%20%20%20%20%20%20%20return%20y%20**%20x%0A%0A%20%20%20%20return%20enigma%28puzzle%28x%3D2%29%29%20%2B%20enigma%28puzzle%283,%20x%29%29%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20%20%20print%28mystery%283%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 ## Practice Exam 2a: Prob 2 {data-state="RedCrossTrace"}
 ::::::cols
@@ -188,7 +168,7 @@ if __name__ == '__main__':
     print(puzzle("angriest"))
 ```
 
-## 2b1: Trace
+## 2b1: PythonTutor Trace
 <iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20puzzle%28t%29%3A%0A%20%20%20%20def%20mystery%28r,%20x%29%3A%0A%20%20%20%20%20%20%20%20x%20%2B%3D%201%0A%20%20%20%20%20%20%20%20def%20enigma%28s%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20r%5Bs%3A%3Ax%5D%0A%20%20%20%20%20%20%20%20return%20enigma%0A%20%20%20%20x%20%3D%202%0A%20%20%20%20y%20%3D%20mystery%28t,%20x%3Dx%29%0A%20%20%20%20return%20y%28x%29%20%2B%20y%28%29%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20%20%20print%28puzzle%28%22angriest%22%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 
@@ -267,12 +247,13 @@ if __name__ == "__main__":
 ## Practice Exam 2b: Prob 3
 - Here you want to write a function `rotate_array` which will shift all the elements of a list to the left or to the right by a specified amount
 - `rotate_array(digits, 1)` should shift the elements one position to the left, and move the first value to the end
-- `rotate_array(digits, -3) should shift the elements three positions to the right, moving the last three elements back around to the beginning
+- `rotate_array(digits, -3)` should shift the elements three positions to the right, moving the last three elements back around to the beginning
 - The elements should be shifted _in place_, not by creating a new list
 
 
 ## 2b3: Potential Solution
-```{.mypython}
+This is assuredly not the most compact solution, but I liked working out how to rotate the array by 1, and then just using a loop to repeat it the desired number of times:
+```{.mypython style='max-height:650px; font-size:.8em;'}
 def rotate_array(array, n):
     def roll_forward(array):
         tmp = array[0]
@@ -291,4 +272,105 @@ def rotate_array(array, n):
             roll_forward(array)
         else:
             roll_backward(array)
+```
+
+## Dictionary Problem
+- In Morse code, every letter is represented by a sequence of short pulses ("dots") or long pulses ("dashes") as shown in the following table:
+
+![](./images/MorseCodeTable.png){width=60%}
+
+- The mapping from letters to Morse code is easy to represent as a Python dictionary in which the keys are the English letters and the values the corresponding string of dots and dashes, as shown on the next slide.
+
+
+## A Python English to Morse Dictionary
+```{.mypython style='max-height:900px; font-size:.8em'}
+# File: MorseCodeDictionary.py
+
+"""
+This file defines a dictionary called LETTERS_TO_MORSE 
+whose entries are the Morse code translations of the letters.
+"""
+
+# Constants 
+
+LETTERS_TO_MORSE = {
+   "A": ".-",
+   "B": "-...",
+   "C": "-.-.",
+   "D": "-..",
+   "E": ".",
+   "F": "..-.",
+   "G": "--.",
+   "H": "....",
+   "I": "..",
+   "J": ".---",
+   "K": "-.-",
+   "L": ".-..",
+   "M": "--",
+   "N": "-.",
+   "O": "---",
+   "P": ".--.",
+   "Q": "--.-",
+   "R": ".-.",
+   "S": "...",
+   "T": "-",
+   "U": "..-",
+   "V": "...-",
+   "W": ".--",
+   "X": "-..-",
+   "Y": "-.--",
+   "Z": "--.."
+}
+```
+
+## Your Mission
+- In this problem, your job is to write a Python program that translates messages to Morse code.
+- Your program should read in lines from the user and then translate each line into Morse code.
+- Your program should continue prompting the user and translating until and empty line is entered
+- A sample run of this program (taken from the messages between the Titanic and the Carpathia in 1912) might look like this:
+
+  ```{.text style='font-size:.75em'}
+  > SOS TITANIC
+  ... --- ... - .. - .- -. .. -.-.
+  > WE ARE SINKING FAST
+  .-- . .- .-. . ... .. -. -.- .. -. --. ..-. .- ... -
+  >
+  ```
+
+## `... --- .-.. ..- - .. --- -.`
+```{.mypython style='max-height:900px; font-size:.75em;'}
+# File: MorseCode.py
+
+"""This program solves the MorseCode problem from section."""
+
+from MorseCodeDictionary import LETTERS_TO_MORSE
+
+def morse_code():
+    """Translates lines to and from Morse code."""
+    finished = False
+    while not finished:
+        line = input("> ")
+        if line == "":
+            finished = True;
+        else:
+            print(translate_letters_to_morse(line))
+
+# Implementation note: translate_letters_to_morse
+# -----------------------------------------------
+# Translates a string of letters into Morse code characters separated
+# by spaces.  Characters that don't appear in the table are ignored.
+
+def translate_letters_to_morse(line):
+    morse = ""
+    for ch in line.upper():
+        if ch in LETTERS_TO_MORSE:
+            if morse != "":
+                morse += " "
+            morse += LETTERS_TO_MORSE[ch]
+    return morse
+
+# Startup code
+
+if __name__ == "__main__":
+    morse_code()
 ```

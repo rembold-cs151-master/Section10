@@ -16,11 +16,8 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
+    ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -40,6 +37,11 @@
   <h1 class="title">Exam 2 Prep and Dictionaries</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
   <p class="date">Week of November 6th</p>
+<div class="titlelinks">
+<a title="Template Repo" href="https://github.com/rembold-cs151-master/Section10"><i class="fa-solid fa-folder-tree"></i></a>
+<a title="Template Zip"  href="https://github.com/rembold-cs151-master/Section10/zipball/master/"><i class="fa-solid fa-file-zipper"></i></a>
+<a title="Questions"     href="https://github.com/rembold-cs151-master/Section10/raw/main/SectionQuestions.pdf"><i class="fa-solid fa-file-pdf"></i></a>
+</div>
 </section>
 
 <section id="practice-exam-2a-prob-1" class="slide level2">
@@ -59,36 +61,10 @@ call from the below code:</p>
 if __name__ == '__main__':
     print(mystery(3))</code></pre>
 </section>
-<section id="a1-trace" class="slide level2"
-data-state="PracExam2a1Trace">
-<h2 data-state="PracExam2a1Trace">2a1: Trace</h2>
-<table id="PracExam2a1TraceTable">
-<tbody>
-<tr>
-<td>
-<div id="PracExam2a1Trace">
-
-</div>
-</td>
-</tr>
-<tr>
-<td style="text-align:center;">
-<table class="CTControlStrip">
-<tbody>
-<tr>
-<td>
-<img id=PracExam2a1TraceStepInButton
-     class="CTButton"
-     src="images/StepInControl.png"
-     alt="StepInButton" />
-</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
+<section id="a1-pythontutor-trace" class="slide level2">
+<h2>2a1: PythonTutor Trace</h2>
+<iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20mystery%28x%29%3A%0A%0A%20%20%20%20def%20puzzle%28x,%20y%3D5%29%3A%0A%20%20%20%20%20%20%20%20return%20x%20*%20y%0A%0A%20%20%20%20def%20enigma%28y%29%3A%0A%20%20%20%20%20%20%20%20return%20y%20**%20x%0A%0A%20%20%20%20return%20enigma%28puzzle%28x%3D2%29%29%20%2B%20enigma%28puzzle%283,%20x%29%29%0A%0Aif%20__name__%20%3D%3D%20&#39;__main__&#39;%3A%0A%20%20%20%20print%28mystery%283%29%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=false&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
+</iframe>
 </section>
 <section id="practice-exam-2a-prob-2" class="slide level2"
 data-state="RedCrossTrace">
@@ -389,8 +365,8 @@ function call from the below code:</p>
 if __name__ == '__main__':
     print(puzzle("angriest"))</code></pre>
 </section>
-<section id="b1-trace" class="slide level2">
-<h2>2b1: Trace</h2>
+<section id="b1-pythontutor-trace" class="slide level2">
+<h2>2b1: PythonTutor Trace</h2>
 <iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20puzzle%28t%29%3A%0A%20%20%20%20def%20mystery%28r,%20x%29%3A%0A%20%20%20%20%20%20%20%20x%20%2B%3D%201%0A%20%20%20%20%20%20%20%20def%20enigma%28s%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20r%5Bs%3A%3Ax%5D%0A%20%20%20%20%20%20%20%20return%20enigma%0A%20%20%20%20x%20%3D%202%0A%20%20%20%20y%20%3D%20mystery%28t,%20x%3Dx%29%0A%20%20%20%20return%20y%28x%29%20%2B%20y%28%29%0A%0Aif%20__name__%20%3D%3D%20&#39;__main__&#39;%3A%0A%20%20%20%20print%28puzzle%28%22angriest%22%29%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 </section>
@@ -482,16 +458,19 @@ amount</li>
 <li><code class="python">rotate_array(digits, 1)</code> should shift the
 elements one position to the left, and move the first value to the
 end</li>
-<li>`rotate_array(digits, -3) should shift the elements three positions
-to the right, moving the last three elements back around to the
-beginning</li>
+<li><code class="python">rotate_array(digits, -3)</code> should shift
+the elements three positions to the right, moving the last three
+elements back around to the beginning</li>
 <li>The elements should be shifted <em>in place</em>, not by creating a
 new list</li>
 </ul>
 </section>
 <section id="b3-potential-solution" class="slide level2">
 <h2>2b3: Potential Solution</h2>
-<pre ><code class="mypython">def rotate_array(array, n):
+<p>This is assuredly not the most compact solution, but I liked working
+out how to rotate the array by 1, and then just using a loop to repeat
+it the desired number of times:</p>
+<pre ><code class="mypython" style="max-height:650px; font-size:.8em;">def rotate_array(array, n):
     def roll_forward(array):
         tmp = array[0]
         for i in range(len(array)-1):
@@ -509,6 +488,117 @@ new list</li>
             roll_forward(array)
         else:
             roll_backward(array)</code></pre>
+</section>
+<section id="dictionary-problem" class="slide level2">
+<h2>Dictionary Problem</h2>
+<ul>
+<li>In Morse code, every letter is represented by a sequence of short
+pulses (“dots”) or long pulses (“dashes”) as shown in the following
+table:</li>
+</ul>
+<p><img data-src="./images/MorseCodeTable.png"
+style="width:60.0%" /></p>
+<ul>
+<li>The mapping from letters to Morse code is easy to represent as a
+Python dictionary in which the keys are the English letters and the
+values the corresponding string of dots and dashes, as shown on the next
+slide.</li>
+</ul>
+</section>
+<section id="a-python-english-to-morse-dictionary" class="slide level2">
+<h2>A Python English to Morse Dictionary</h2>
+<pre ><code class="mypython" style="max-height:900px; font-size:.8em"># File: MorseCodeDictionary.py
+
+"""
+This file defines a dictionary called LETTERS_TO_MORSE 
+whose entries are the Morse code translations of the letters.
+"""
+
+# Constants 
+
+LETTERS_TO_MORSE = {
+   "A": ".-",
+   "B": "-...",
+   "C": "-.-.",
+   "D": "-..",
+   "E": ".",
+   "F": "..-.",
+   "G": "--.",
+   "H": "....",
+   "I": "..",
+   "J": ".---",
+   "K": "-.-",
+   "L": ".-..",
+   "M": "--",
+   "N": "-.",
+   "O": "---",
+   "P": ".--.",
+   "Q": "--.-",
+   "R": ".-.",
+   "S": "...",
+   "T": "-",
+   "U": "..-",
+   "V": "...-",
+   "W": ".--",
+   "X": "-..-",
+   "Y": "-.--",
+   "Z": "--.."
+}</code></pre>
+</section>
+<section id="your-mission" class="slide level2">
+<h2>Your Mission</h2>
+<ul>
+<li><p>In this problem, your job is to write a Python program that
+translates messages to Morse code.</p></li>
+<li><p>Your program should read in lines from the user and then
+translate each line into Morse code.</p></li>
+<li><p>Your program should continue prompting the user and translating
+until and empty line is entered</p></li>
+<li><p>A sample run of this program (taken from the messages between the
+Titanic and the Carpathia in 1912) might look like this:</p>
+<pre ><code class="text" style="font-size:.75em">> SOS TITANIC
+... --- ... - .. - .- -. .. -.-.
+> WE ARE SINKING FAST
+.-- . .- .-. . ... .. -. -.- .. -. --. ..-. .- ... -
+></code></pre></li>
+</ul>
+</section>
+<section id="section" class="slide level2">
+<h2><code class="python">... --- .-.. ..- - .. --- -.</code></h2>
+<pre ><code class="mypython" style="max-height:900px; font-size:.75em;"># File: MorseCode.py
+
+"""This program solves the MorseCode problem from section."""
+
+from MorseCodeDictionary import LETTERS_TO_MORSE
+
+def morse_code():
+    """Translates lines to and from Morse code."""
+    finished = False
+    while not finished:
+        line = input("> ")
+        if line == "":
+            finished = True;
+        else:
+            print(translate_letters_to_morse(line))
+
+# Implementation note: translate_letters_to_morse
+# -----------------------------------------------
+# Translates a string of letters into Morse code characters separated
+# by spaces.  Characters that don't appear in the table are ignored.
+
+def translate_letters_to_morse(line):
+    morse = ""
+    for ch in line.upper():
+        if ch in LETTERS_TO_MORSE:
+            if morse != "":
+                morse += " "
+            morse += LETTERS_TO_MORSE[ch]
+    return morse
+
+# Startup code
+
+if __name__ == "__main__":
+    morse_code()</code></pre>
 </section>
     </div>
   </div>
