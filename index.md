@@ -1,7 +1,7 @@
 ---
-title: "Exam 2 Prep and Dictionaries"
+title: "Section 9: Exam 2 Prep"
 author: Jed Rembold and Eric Roberts
-date: "Week of November 6th"
+date: "Week of March 18"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
@@ -15,12 +15,22 @@ css:
 tracejs:
   - RedCross
   - Snake
+  - Eye
 extrajs:
   - js/pgl.js
 content_url: https://github.com/rembold-cs151-master/Section10
 ---
 
+## Practice Prob 1
+Here you are tasked with:
 
+- Creating a red cross GCompound of 60 x 20 pixel rectangles that cross at the center
+- Adding the cross to the middle of the window
+- Moving the cross 2 pixels in a constant heading every 20 ms
+- Implementing a listener to cause the constant heading to change to a new random value between 0 and 360 degrees when you click inside the cross. 
+  - Clicks outside the cross should have no effect
+
+<!--
 ## Practice Exam 2a: Prob 1
 You are tasked with identifying what is returned for every function call from the below code:
 ```{.mypython style="max-height:850px; font-size:.8em"}
@@ -40,25 +50,14 @@ if __name__ == '__main__':
 
 ## 2a1: PythonTutor Trace 
 <iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20mystery%28x%29%3A%0A%0A%20%20%20%20def%20puzzle%28x,%20y%3D5%29%3A%0A%20%20%20%20%20%20%20%20return%20x%20*%20y%0A%0A%20%20%20%20def%20enigma%28y%29%3A%0A%20%20%20%20%20%20%20%20return%20y%20**%20x%0A%0A%20%20%20%20return%20enigma%28puzzle%28x%3D2%29%29%20%2B%20enigma%28puzzle%283,%20x%29%29%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20%20%20print%28mystery%283%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=false&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+-->
 
-## Practice Exam 2a: Prob 2 {data-state="RedCrossTrace"}
-::::::cols
-::::col
-Here you are tasked with:
 
-- Creating a red cross GCompound of specified dimensions and crossing at the center
-- Adding the cross to the middle of the window
-- Having it move at a constant speed in a constant heading every 20 ms
-- Implementing a listener to cause the constant heading to change when you click inside the cross
-::::
-
-::::col
+## Practice Prob 1 Visualized {data-state="RedCrossTrace"}
 <div id="RedCrossCanvas" class="CTCanvas"
-     style="border:none; background-color:white; width:800px; height:800px;"></div>
-::::
-::::::
+     style="border:none; background-color:white; width:1600px; height:800px; margin: auto;"></div>
 
-## 2a2: Possible Solution
+## Practice Prob 1: Possible Solution
 ```{.mypython style='max-height:850px; font-size:.7em;'}
 from pgl import GWindow, GCompound, GRect
 from random import uniform
@@ -100,6 +99,7 @@ gw.set_interval(step, 20)
 gw.add_event_listener("mousedown", click_action) #click would be fine too
 ```
 
+<!--
 ## Practice Exam 2a: Prob 3
 ::::::{.cols style='align-items: center'}
 ::::{.col style='font-size:.9em'}
@@ -171,26 +171,23 @@ if __name__ == '__main__':
 ## 2b1: PythonTutor Trace
 <iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20puzzle%28t%29%3A%0A%20%20%20%20def%20mystery%28r,%20x%29%3A%0A%20%20%20%20%20%20%20%20x%20%2B%3D%201%0A%20%20%20%20%20%20%20%20def%20enigma%28s%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20r%5Bs%3A%3Ax%5D%0A%20%20%20%20%20%20%20%20return%20enigma%0A%20%20%20%20x%20%3D%202%0A%20%20%20%20y%20%3D%20mystery%28t,%20x%3Dx%29%0A%20%20%20%20return%20y%28x%29%20%2B%20y%28%29%0A%0Aif%20__name__%20%3D%3D%20'__main__'%3A%0A%20%20%20%20print%28puzzle%28%22angriest%22%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
+-->
 
-## Practice Exam 2b: Prob 2 {data-state="SnakeTrace"}
-::::::cols
-::::col
+## Practice Prob 2 
 - Here you are trying to recreate the movement of the basic game Snake
+- The snake is infinitely long, so you only have to worry about adding a new black square to the head of the snake each time step
+- Clicking above or below a horizontally moving snake turns towards the click
+- Clicking left or right a vertically moving snake turns it towards the click
+- Need to track three things: x and y position of head, and the facing direction
 - No collision checking is necessary!!
-- Clicking above or below a horizontally moving snake turns it that direction
-- Clicking left or right a vertically moving snake turns it that direction
-- Need to track three things: x and y position of head, and facing direction
-::::
 
-::::col
+
+## Practice Prob 2 Visualized {data-state="SnakeTrace"}
 <div id="SnakeCanvas" class="CTCanvas"
-     style="border:none; background-color:white; width:800px; height:800px;"></div>
-
-::::
-::::::
+     style="border:none; background-color:white; width:1600px; height:800px; margin: auto;"></div>
 
 
-## 2b2: Snake Solution
+## Practice Prob 2: A Snake Solution
 ```{.mypython style='max-height:850px; font-size:.8em;'}
 from pgl import GWindow, GRect
 
@@ -244,6 +241,26 @@ if __name__ == "__main__":
     snake()
 ```
 
+## Practice Prob 3
+::::::cols
+::::col
+- Here you have two eyeballs and would like the setup the pupils of the eyeballs to track the current position of the mouse cursor
+- Keeping things centered properly will require accounting for the origin of circles!
+- You can do this without any trigonometry if you remember some properties of similar triangles, sketched to the right
+
+::::
+
+::::col
+![](./images/eye_shift.svg)
+
+::::
+::::::
+
+
+## Practice Prob 3 Visualized {data-state="EyeTrace"}
+<div id="EyeCanvas" class="CTCanvas"
+     style="border:none; background-color:white; width:1600px; height:800px; margin: auto;"></div>
+<!--
 ## Practice Exam 2b: Prob 3
 - Here you want to write a function `rotate_array` which will shift all the elements of a list to the left or to the right by a specified amount
 - `rotate_array(digits, 1)` should shift the elements one position to the left, and move the first value to the end
@@ -374,3 +391,4 @@ def translate_letters_to_morse(line):
 if __name__ == "__main__":
     morse_code()
 ```
+-->
