@@ -260,6 +260,60 @@ if __name__ == "__main__":
 ## Practice Prob 3 Visualized {data-state="EyeTrace"}
 <div id="EyeCanvas" class="CTCanvas"
      style="border:none; background-color:white; width:1600px; height:800px; margin: auto;"></div>
+
+
+## Practice Prob 3: Possible Solution
+```{.python style='font-size:.6em; max-height:900px;'}
+from pgl import GWindow, GOval
+
+
+GW_WIDTH = 1600
+GW_HEIGHT = 800
+EYE_RADIUS = 150
+PUPIL_RADIUS = EYE_RADIUS / 2
+
+
+def compute_displacement(eye_x, eye_y, mouse_x, mouse_y, move_dist):
+    dx = mouse_x - eye_x
+    dy = mouse_y - eye_y
+    dist = (dx**2 + dy**2) ** (1 / 2)
+    sx = move_dist * dx / dist
+    sy = move_dist * dy / dist
+    return sx, sy
+
+
+def move_action(event):
+    mx, my = event.get_x(), event.get_y()
+    lx, ly = GW_WIDTH / 2 - 2 * EYE_RADIUS, GW_HEIGHT / 2
+    rx, ry = GW_WIDTH / 2 + 2 * EYE_RADIUS, GW_HEIGHT / 2
+    lsx, lsy = compute_displacement(lx, ly, mx, my, PUPIL_RADIUS)
+    rsx, rsy = compute_displacement(rx, ry, mx, my, PUPIL_RADIUS)
+    l_pupil.set_location(lx + lsx - PUPIL_RADIUS, ly + lsy - PUPIL_RADIUS)
+    r_pupil.set_location(rx + rsx - PUPIL_RADIUS, ry + rsy - PUPIL_RADIUS)
+
+
+gw = GWindow(GW_WIDTH, GW_HEIGHT)
+
+l_eye = GOval(2 * EYE_RADIUS, 2 * EYE_RADIUS)
+r_eye = GOval(2 * EYE_RADIUS, 2 * EYE_RADIUS)
+gw.add(l_eye, GW_WIDTH / 2 - 2 * EYE_RADIUS - EYE_RADIUS, GW_HEIGHT / 2 - EYE_RADIUS)
+gw.add(r_eye, GW_WIDTH / 2 + 2 * EYE_RADIUS - EYE_RADIUS, GW_HEIGHT / 2 - EYE_RADIUS)
+
+l_pupil = GOval(2 * PUPIL_RADIUS, 2 * PUPIL_RADIUS)
+r_pupil = GOval(2 * PUPIL_RADIUS, 2 * PUPIL_RADIUS)
+l_pupil.set_filled(True)
+r_pupil.set_filled(True)
+gw.add(
+    l_pupil, GW_WIDTH / 2 - 2 * EYE_RADIUS - PUPIL_RADIUS, GW_HEIGHT / 2 - PUPIL_RADIUS
+)
+gw.add(
+    r_pupil, GW_WIDTH / 2 + 2 * EYE_RADIUS - PUPIL_RADIUS, GW_HEIGHT / 2 - PUPIL_RADIUS
+)
+
+gw.add_event_listener("mousemove", move_action)
+```
+
+
 <!--
 ## Practice Exam 2b: Prob 3
 - Here you want to write a function `rotate_array` which will shift all the elements of a list to the left or to the right by a specified amount
