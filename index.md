@@ -1,7 +1,7 @@
 ---
-title: "Exam 2 Prep and Dictionaries"
+title: "Exam 2 Prep"
 author: Jed Rembold and Eric Roberts
-date: "Week of November 6th"
+date: "Week of November 4th"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
@@ -274,6 +274,7 @@ def rotate_array(array, n):
             roll_backward(array)
 ```
 
+<!--
 ## Dictionary Problem
 - In Morse code, every letter is represented by a sequence of short pulses ("dots") or long pulses ("dashes") as shown in the following table:
 
@@ -374,3 +375,4 @@ def translate_letters_to_morse(line):
 if __name__ == "__main__":
     morse_code()
 ```
+-->

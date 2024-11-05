@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jed Rembold and Eric Roberts">
-  <title>Exam 2 Prep and Dictionaries</title>
+  <title>Exam 2 Prep</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -16,8 +16,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -34,9 +37,9 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Exam 2 Prep and Dictionaries</h1>
+  <h1 class="title">Exam 2 Prep</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
-  <p class="date">Week of November 6th</p>
+  <p class="date">Week of November 4th</p>
 <div class="titlelinks">
 <a title="Template Repo" href="https://github.com/rembold-cs151-master/Section10"><i class="fa-solid fa-folder-tree"></i></a>
 <a title="Template Zip"  href="https://github.com/rembold-cs151-master/Section10/zipball/master/"><i class="fa-solid fa-file-zipper"></i></a>
@@ -488,26 +491,18 @@ it the desired number of times:</p>
             roll_forward(array)
         else:
             roll_backward(array)</code></pre>
-</section>
-<section id="dictionary-problem" class="slide level2">
-<h2>Dictionary Problem</h2>
-<ul>
-<li>In Morse code, every letter is represented by a sequence of short
-pulses (“dots”) or long pulses (“dashes”) as shown in the following
-table:</li>
-</ul>
-<p><img data-src="./images/MorseCodeTable.png"
-style="width:60.0%" /></p>
-<ul>
-<li>The mapping from letters to Morse code is easy to represent as a
-Python dictionary in which the keys are the English letters and the
-values the corresponding string of dots and dashes, as shown on the next
-slide.</li>
-</ul>
-</section>
-<section id="a-python-english-to-morse-dictionary" class="slide level2">
-<h2>A Python English to Morse Dictionary</h2>
-<pre ><code class="mypython" style="max-height:900px; font-size:.8em"># File: MorseCodeDictionary.py
+<!--
+## Dictionary Problem
+- In Morse code, every letter is represented by a sequence of short pulses ("dots") or long pulses ("dashes") as shown in the following table:
+
+![](./images/MorseCodeTable.png){width=60%}
+
+- The mapping from letters to Morse code is easy to represent as a Python dictionary in which the keys are the English letters and the values the corresponding string of dots and dashes, as shown on the next slide.
+
+
+## A Python English to Morse Dictionary
+```{.mypython style='max-height:900px; font-size:.8em'}
+# File: MorseCodeDictionary.py
 
 """
 This file defines a dictionary called LETTERS_TO_MORSE 
@@ -543,29 +538,26 @@ LETTERS_TO_MORSE = {
    "X": "-..-",
    "Y": "-.--",
    "Z": "--.."
-}</code></pre>
-</section>
-<section id="your-mission" class="slide level2">
-<h2>Your Mission</h2>
-<ul>
-<li><p>In this problem, your job is to write a Python program that
-translates messages to Morse code.</p></li>
-<li><p>Your program should read in lines from the user and then
-translate each line into Morse code.</p></li>
-<li><p>Your program should continue prompting the user and translating
-until and empty line is entered</p></li>
-<li><p>A sample run of this program (taken from the messages between the
-Titanic and the Carpathia in 1912) might look like this:</p>
-<pre ><code class="text" style="font-size:.75em">> SOS TITANIC
-... --- ... - .. - .- -. .. -.-.
-> WE ARE SINKING FAST
-.-- . .- .-. . ... .. -. -.- .. -. --. ..-. .- ... -
-></code></pre></li>
-</ul>
-</section>
-<section id="section" class="slide level2">
-<h2><code class="python">... --- .-.. ..- - .. --- -.</code></h2>
-<pre ><code class="mypython" style="max-height:900px; font-size:.75em;"># File: MorseCode.py
+}
+```
+
+## Your Mission
+- In this problem, your job is to write a Python program that translates messages to Morse code.
+- Your program should read in lines from the user and then translate each line into Morse code.
+- Your program should continue prompting the user and translating until and empty line is entered
+- A sample run of this program (taken from the messages between the Titanic and the Carpathia in 1912) might look like this:
+
+  ```{.text style='font-size:.75em'}
+  > SOS TITANIC
+  ... --- ... - .. - .- -. .. -.-.
+  > WE ARE SINKING FAST
+  .-- . .- .-. . ... .. -. -.- .. -. --. ..-. .- ... -
+  >
+  ```
+
+## `... --- .-.. ..- - .. --- -.`
+```{.mypython style='max-height:900px; font-size:.75em;'}
+# File: MorseCode.py
 
 """This program solves the MorseCode problem from section."""
 
@@ -598,7 +590,9 @@ def translate_letters_to_morse(line):
 # Startup code
 
 if __name__ == "__main__":
-    morse_code()</code></pre>
+    morse_code()
+```
+-->
 </section>
     </div>
   </div>
