@@ -1,7 +1,7 @@
 ---
 title: "Section 9: Exam 2 Prep"
 author: Jed Rembold and Eric Roberts
-date: "Week of March 18"
+date: "Week of March 17"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
