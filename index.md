@@ -1,7 +1,7 @@
 ---
 title: "Exam 2 Prep"
 author: Jed Rembold and Eric Roberts
-date: "Week of November 4th"
+date: "Week of November 3th"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
