@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="./js/revealjs/dist/reset.css">
   <link rel="stylesheet" href="./js/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -39,7 +42,7 @@
 <section id="title-slide">
   <h1 class="title">Exam 2 Prep</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
-  <p class="date">Week of November 3th</p>
+  <p class="date">Week of March 30th</p>
 <div class="titlelinks">
 <a title="Template Repo" href="https://github.com/rembold-cs151-master/Section10"><i class="fa-solid fa-folder-tree"></i></a>
 <a title="Template Zip"  href="https://github.com/rembold-cs151-master/Section10/zipball/master/"><i class="fa-solid fa-file-zipper"></i></a>
@@ -64,8 +67,9 @@ call from the below code:</p>
 if __name__ == '__main__':
     print(mystery(3))</code></pre>
 </section>
-<section id="a1-pythontutor-trace" class="slide level2">
-<h2>2a1: PythonTutor Trace</h2>
+<section id="a1-pythontutor-trace" class="slide level2"
+data-background-color="white">
+<h2 data-background-color="white">2a1: PythonTutor Trace</h2>
 <iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20mystery%28x%29%3A%0A%0A%20%20%20%20def%20puzzle%28x,%20y%3D5%29%3A%0A%20%20%20%20%20%20%20%20return%20x%20*%20y%0A%0A%20%20%20%20def%20enigma%28y%29%3A%0A%20%20%20%20%20%20%20%20return%20y%20**%20x%0A%0A%20%20%20%20return%20enigma%28puzzle%28x%3D2%29%29%20%2B%20enigma%28puzzle%283,%20x%29%29%0A%0Aif%20__name__%20%3D%3D%20&#39;__main__&#39;%3A%0A%20%20%20%20print%28mystery%283%29%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=false&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 </section>
@@ -368,8 +372,9 @@ function call from the below code:</p>
 if __name__ == '__main__':
     print(puzzle("angriest"))</code></pre>
 </section>
-<section id="b1-pythontutor-trace" class="slide level2">
-<h2>2b1: PythonTutor Trace</h2>
+<section id="b1-pythontutor-trace" class="slide level2"
+data-background-color="white">
+<h2 data-background-color="white">2b1: PythonTutor Trace</h2>
 <iframe width="1600" height="900" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20puzzle%28t%29%3A%0A%20%20%20%20def%20mystery%28r,%20x%29%3A%0A%20%20%20%20%20%20%20%20x%20%2B%3D%201%0A%20%20%20%20%20%20%20%20def%20enigma%28s%20%3D%200%29%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20r%5Bs%3A%3Ax%5D%0A%20%20%20%20%20%20%20%20return%20enigma%0A%20%20%20%20x%20%3D%202%0A%20%20%20%20y%20%3D%20mystery%28t,%20x%3Dx%29%0A%20%20%20%20return%20y%28x%29%20%2B%20y%28%29%0A%0Aif%20__name__%20%3D%3D%20&#39;__main__&#39;%3A%0A%20%20%20%20print%28puzzle%28%22angriest%22%29%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=0&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=311&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false">
 </iframe>
 </section>
